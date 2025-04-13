@@ -8,7 +8,7 @@ COLLECTION_NAME = "visa_data"
 MONGODB_URL_KEY = "MONGODB_URL"
 
 PIPELINE_NAME: str = "usvisa"
-ARTIFACT_DIR: str = "artifact"
+ARTIFACT_DIR: str = "artifacts"
 
 
 TRAIN_FILE_NAME: str = "train.csv"
@@ -79,3 +79,6 @@ MODEL_PUSHER_S3_KEY = "model-registry"
 
 APP_HOST = "0.0.0.0"
 APP_PORT = 8080
+
+MODEL_OUTPUT_PATH = "artifacts/model_trainer/trained_model/model.pkl"
+TOKEN_FILE_PATH = "artifacts/data_transformation/transformed_object/preprocessing.pkl"

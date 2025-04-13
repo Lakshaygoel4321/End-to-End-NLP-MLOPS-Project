@@ -65,3 +65,19 @@ class ModelEvaluationConfig:
 class ModelPusherConfig:
     bucket_name: str = MODEL_BUCKET_NAME
     s3_model_key_path: str = MODEL_FILE_NAME
+
+
+@dataclass
+class USvisaPredictorConfig:
+    model_file_path: str = MODEL_FILE_NAME
+    model_bucket_name: str = MODEL_BUCKET_NAME
+
+
+@dataclass
+class PredictorConfig:
+    """
+    This config is used by the final prediction pipeline to fetch model from AWS S3.
+    """
+    bucket_name: str = MODEL_BUCKET_NAME
+    model_name: str = MODEL_FILE_NAME
+    model_download_path: str = os.path.join("artifacts", "PredictModel")  # local directory where model will be downloaded

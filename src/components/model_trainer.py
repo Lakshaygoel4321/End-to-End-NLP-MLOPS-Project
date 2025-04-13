@@ -1,5 +1,6 @@
 import sys
 from typing import Tuple
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -86,6 +87,9 @@ class ModelTrainer:
             logging.info("Created best model file path.")
             save_object(self.model_trainer_config.trained_model_file_path, usvisa_model)
 
+            with open('model.pkl','wb') as file:
+                pickle.dump(usvisa_model,file)
+
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                 metric_artifact=metric_artifact,
@@ -94,3 +98,4 @@ class ModelTrainer:
             return model_trainer_artifact
         except Exception as e:
             raise USvisaException(e, sys) from e
+
